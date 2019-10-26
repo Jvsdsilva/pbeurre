@@ -1,0 +1,133 @@
+from aliments import dbRequests
+from aliments.models import Category
+from aliments.models import Store
+from aliments.models import Products
+from aliments.models import Foodsave
+# from aliments.models import User
+
+
+def insertCategory():
+    category_list = {}
+    cat_list = []
+    request = dbRequests.DbRequests()
+
+    category_list = request.Request_categories()
+
+    for i in category_list:
+        idcat = i['id']
+        name = i['nameCategory']
+        cat = Category(nameCategory=name, idCategory=idcat)
+
+        cat_list.append(cat)
+
+    # Call bulk_create to create records in a single call
+    Category.objects.bulk_create(cat_list)
+
+
+def insertStore():
+    store_list = {}
+    sto_list = []
+
+    request = dbRequests.DbRequests()
+
+    store_list = request.Request_stores()
+
+    for i in store_list:
+        idSto = i['id']
+        name = i['nameStore']
+        store = Store(nameStore=name, idStore=idSto)
+
+        sto_list.append(store)
+
+    # Call bulk_create to create records in a single call
+    Store.objects.bulk_create(sto_list)
+
+
+def insertProducts():
+    list_prod_obj = []
+
+    request = dbRequests.DbRequests()
+
+    product_list = request.Request_products()
+
+    for i in product_list:
+        nameAlim = i["nameAlim"]
+        image = i["image"]
+        url = i["url"]
+        descriptionAlim = i["descriptionAlim"]
+        nutritionGrade = i["nutritionGrade"]
+        idCategory = i["idCategory"]
+        idStore = i["idStore"]
+        # get id category for this product
+        idCat = getidCategory(idCategory)
+        # get id store for this product
+        idSto = getidStore(idStore)
+
+        if (idCat is not None) and (idSto is not None):
+            product = Products(nameAlim=nameAlim, image=image, url=url,
+                               descriptionAlim=descriptionAlim,
+                               nutritionGrade=nutritionGrade, idCategory=idCat,
+                               idStore=idSto)
+
+            list_prod_obj.append(product)
+
+    # Call bulk_create to create records in a single call
+    Products.objects.bulk_create(list_prod_obj)
+
+
+def getidCategory(category):
+    ob_Category = Category.objects.filter(nameCategory=category)
+    if ob_Category.first():
+        obj_cat = Category(id=ob_Category.first().id,
+                           idCategory=ob_Category.first().idCategory,
+                           nameCategory=ob_Category.first().nameCategory)
+    else:
+        obj_cat = None
+
+    return(obj_cat)
+
+
+def getidStore(store):
+    ob_Store = Store.objects.filter(nameStore=store)
+    if ob_Store.first():
+        obj_store = Store(id=ob_Store.first().id,
+                          idStore=ob_Store.first().idStore,
+                          nameStore=ob_Store.first().nameStore)
+    else:
+        obj_store = None
+
+    return(obj_store)
+
+
+def insertUser():
+    pass
+
+# get produit from user, get their category,
+# get aliments from the same category
+# get score from those aliments
+def get_Results(product):
+    # ob_Product = Products.objects.all()
+    # ob_Product = Products.objects.get(nameAlim=product)
+    ob_Product = Products.objects.filter(nameAlim=product)
+    
+    if ob_Product.first():
+        obj_prods_by_cat = get_products_by_cat(ob_Product.first().idCategory)
+
+        return(obj_prods_by_cat)
+
+def get_products_by_cat(category):
+    ob_cat_prod = Products.objects.filter(idCategory=category)[:6]
+    json_res = []
+
+    for obj in ob_cat_prod:
+        product = Products(nameAlim=obj.nameAlim, 
+                            image=obj.image, 
+                            url=obj.url,
+                            descriptionAlim=obj.descriptionAlim,
+                            nutritionGrade=obj.nutritionGrade, 
+                            idCategory=obj.idCategory,
+                            idStore=obj.idStore
+                            )
+        json_res.append(product)
+
+    return(json_res)
