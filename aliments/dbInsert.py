@@ -49,7 +49,6 @@ def insertProducts():
     request = dbRequests.DbRequests()
 
     product_list = request.Request_products()
-
     for i in product_list:
         nameAlim = i["nameAlim"]
         image = i["image"]

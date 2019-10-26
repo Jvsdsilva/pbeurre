@@ -219,7 +219,13 @@ input[type=text] {
     }
   }
 
+<<<<<<< HEAD
   
+=======
+  section{
+    background-color: #345A61;
+  }
+>>>>>>> 692f9a37d206bfd5a751bacd9f152ef07dece708
 
   .mentions{
     background-color: #86EBE6;
@@ -344,7 +350,11 @@ input[type=text] {
 
 @media (max-width: 600px) {
   .port {
+<<<<<<< HEAD
     flex-direction: row;
+=======
+    flex-direction: column;
+>>>>>>> 692f9a37d206bfd5a751bacd9f152ef07dece708
     padding-bottom: 50px;
     justify-content: center;
     align-items: center;
@@ -362,7 +372,11 @@ input[type=text] {
     /*min-height: 25%;*/
     /*padding-top: 80px;
     padding-bottom: 10px;*/
+<<<<<<< HEAD
     justify-content: space-evenly;
+=======
+    justify-content: center;
+>>>>>>> 692f9a37d206bfd5a751bacd9f152ef07dece708
     align-items: center;
     text-align: center;
   }

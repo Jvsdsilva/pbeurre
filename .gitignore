@@ -1,5 +1,6 @@
 # Byte-compiled / optimized / DLL files
 __pycache__/
+__init__.py
 *.py[cod]
 *$py.class
 
@@ -90,13 +91,19 @@ ENV/
 env.bak/
 venv.bak/
 .vscode
+<<<<<<< HEAD
 
+=======
+>>>>>>> 692f9a37d206bfd5a751bacd9f152ef07dece708
 # Spyder project settings
 .spyderproject
 .spyproject
 
 # Rope project settings
 .ropeproject
+.models.py
+.admin.py
+migrations
 
 # mkdocs documentation
 /site
