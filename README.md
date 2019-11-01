@@ -8,7 +8,7 @@ This project aims to create a web page that will allow you to query the "Open fo
     Step 2: You need to connect to save the products.
     Step 3: Type a product and click search.
     Step 4: Click under the product that you want to kwon the details.
-    Step 5: Click sur "sauvegarder" to save your product.
+    Step 5: Click sur "save" to save your product.
     Step 6: You can click directly in the carrot to see the products that you have saved.
 ```
 
