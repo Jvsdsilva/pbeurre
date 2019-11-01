@@ -49,6 +49,7 @@ def insertProducts():
     request = dbRequests.DbRequests()
 
     product_list = request.Request_products()
+
     for i in product_list:
         nameAlim = i["nameAlim"]
         image = i["image"]
@@ -98,35 +99,63 @@ def getidStore(store):
     return(obj_store)
 
 
-def insertUser():
-    pass
+def insertFoodsave(idAlim, idUser):
+    list_food = []
 
-# get produit from user, get their category,
-# get aliments from the same category
-# get score from those aliments
+    if (idAlim != "") and (idUser != ""):
+        obj_foodsave = Foodsave(idAliment=idAlim, idUser=idUser)
+
+        list_food.append(obj_foodsave)
+        # Call bulk_create to create records in a single call
+        Foodsave.objects.bulk_create(list_food)
+        # obj_foodsave.save()
+    return(list_food)
+
+
 def get_Results(product):
-    # ob_Product = Products.objects.all()
-    # ob_Product = Products.objects.get(nameAlim=product)
     ob_Product = Products.objects.filter(nameAlim=product)
-    
+
     if ob_Product.first():
         obj_prods_by_cat = get_products_by_cat(ob_Product.first().idCategory)
 
         return(obj_prods_by_cat)
+
 
 def get_products_by_cat(category):
     ob_cat_prod = Products.objects.filter(idCategory=category)[:6]
     json_res = []
 
     for obj in ob_cat_prod:
-        product = Products(nameAlim=obj.nameAlim, 
-                            image=obj.image, 
-                            url=obj.url,
-                            descriptionAlim=obj.descriptionAlim,
-                            nutritionGrade=obj.nutritionGrade, 
-                            idCategory=obj.idCategory,
-                            idStore=obj.idStore
-                            )
+        product = Products(id=obj.id,
+                           nameAlim=obj.nameAlim,
+                           image=obj.image,
+                           url=obj.url,
+                           descriptionAlim=obj.descriptionAlim,
+                           nutritionGrade=obj.nutritionGrade,
+                           idCategory=obj.idCategory,
+                           idStore=obj.idStore
+                           )
         json_res.append(product)
 
     return(json_res)
+
+
+def get_saved_products(idUser):
+    result_res = []
+    aliment_save = Foodsave.objects.filter(idUser=idUser)
+
+    for result in aliment_save.values():
+        context = {}
+
+        obj_aliment = Products.objects.filter(pk=result['idAliment_id'])
+
+        if obj_aliment.first() != "":
+            context['nameAlim'] = obj_aliment.first().nameAlim
+            context['image'] = obj_aliment.first().image
+            context['nutritionGrade'] = obj_aliment.first().nutritionGrade
+
+            result_res.append(context)
+        else:
+            result_res = list()
+
+    return(result_res)

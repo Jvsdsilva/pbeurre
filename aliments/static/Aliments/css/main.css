@@ -104,13 +104,13 @@ input[type=text] {
   @media (max-width: 600px) {
     #headindex {
       height: auto;
-      /*min-height: 25%;*/
       flex-direction: column;
       padding-top: 80px;
       padding-bottom: 50px;
       justify-content: center;
       align-items: center;
       text-align: center;
+      width: 100%;
     }
     #headindex p {
       font-size: 1.15rem;
@@ -177,13 +177,13 @@ input[type=text] {
   @media (max-width: 600px) {
     .headother {
       height: auto;
-      /*min-height: 25%;*/
       flex-direction: column;
       padding-top: 80px;
       padding-bottom: 50px;
       justify-content: center;
       align-items: center;
       text-align: center;
+      width: 100%;
     }
     .headother p {
       font-size: 1.15rem;
@@ -219,17 +219,57 @@ input[type=text] {
     }
   }
 
-<<<<<<< HEAD
-  
-=======
-  section{
-    background-color: #345A61;
-  }
->>>>>>> 692f9a37d206bfd5a751bacd9f152ef07dece708
-
+  /* footer */
   .mentions{
     background-color: #86EBE6;
   }
+
+    .mentions h1 {
+      font-size: 1.5rem;
+      justify-content: center;
+      align-items: center;
+      text-align: center;
+    }
+    
+    @media (max-width: 600px) {
+      .mentions {
+        flex-direction: column;
+        padding-bottom: 0px;
+        justify-content: center;
+        align-items: center;
+        text-align: center;
+        width: 100%;
+      }
+      .mentions p {
+        font-size: 1.15rem;
+      }
+      .mentions h1 {
+        font-size: 3rem;
+        align-items: center;
+      }
+    }
+  
+    @media (min-width: 992px) {
+      .mentions {
+        padding-bottom: 0px;
+        text-align: center;
+      }
+      .mentions p {
+        font-size: 1.15rem;
+      }
+      .mentions h1 {
+        font-size: 3rem;
+      }
+    }
+    
+    @media (min-width: 1200px) {
+      .mentions h1 {
+        font-size: 3.5rem;
+      }
+      .mentions h2 {
+        font-size: 2.5rem;
+      }
+    }
 
   #phone{
     color: #C45525;
@@ -243,6 +283,15 @@ input[type=text] {
     background-color: #C45525;
     margin: 0px 10px 0px 10px;
     color: white;
+  }
+
+  #foodsave{
+    background-color: #C45525;
+    margin: 0px 10px 0px 10px;
+    color: white;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
   }
 
   /* header results */
@@ -273,7 +322,6 @@ input[type=text] {
   font-size: 1rem;
 }
 
-
 .flex-container {
   display: flex;
   flex-direction: column;
@@ -294,6 +342,7 @@ input[type=text] {
     justify-content: center;
     align-items: center;
     text-align: center;
+    width: 100%;
   }
   .flex-container p {
     font-size: 1.15rem;
@@ -306,10 +355,6 @@ input[type=text] {
 
 @media (min-width: 992px) {
   .flex-container {
-    /*height: 50%;*/
-    /*min-height: 25%;*/
-    /*padding-top: 80px;
-    padding-bottom: 10px;*/
     justify-content: center;
     align-items: center;
     text-align: center;
@@ -330,68 +375,7 @@ input[type=text] {
 
 /* btn signin user */
 .signin{
-  padding:40px;
-}
-
-.port {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: center;
-}
-
-.portfo {
- margin: 5px;
- transition: all 2s;
-}
-
-.portfo:hover {
- transform: scale (1.1);
-}
-
-@media (max-width: 600px) {
-  .port {
-<<<<<<< HEAD
-    flex-direction: row;
-=======
-    flex-direction: column;
->>>>>>> 692f9a37d206bfd5a751bacd9f152ef07dece708
-    padding-bottom: 50px;
-    justify-content: center;
-    align-items: center;
-    text-align: center;
-  }
-  .port p {
-    font-size: 1.15rem;
-  }
-
-}
-
-@media (min-width: 992px) {
-  .port {
-    /*height: 50%;*/
-    /*min-height: 25%;*/
-    /*padding-top: 80px;
-    padding-bottom: 10px;*/
-<<<<<<< HEAD
-    justify-content: space-evenly;
-=======
-    justify-content: center;
->>>>>>> 692f9a37d206bfd5a751bacd9f152ef07dece708
-    align-items: center;
-    text-align: center;
-  }
-  .port p {
-    font-size: 1.15rem;
-  }
-  .port h1 {
-    font-size: 3rem;
-  }
-}
-
-@media (min-width: 1200px) {
-  .port h1 {
-    font-size: 3.5rem;
-  }
+  margin-bottom: 10px;
 }
 
 .result_item {
@@ -400,46 +384,195 @@ input[type=text] {
   justify-content: center, space-between;
 }
 
-
-section{
-  background-color: #345A61;
+.images_container{
+  flex-direction: row;
+  margin: 20px;
+  padding-bottom: 10px;
+  justify-content: center;
   align-items: center;
+  text-align: center;
+}
+
+#block_content{
+  background-color: #345A61;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+
+}
+#block_content .headother{
+  background-color: #345A61;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  height:30%;
+}
+
+#block_content #portofolio{
+  background-color: #345A61;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  height: 70%;
+
 }
 
 @media (max-width: 600px) {
-  .section {
-    flex-direction: row;
-    padding-bottom: 50px;
+  #block_content {
+    display: flex;
+    flex-direction: column;
+    padding-bottom: 10px;
     justify-content: center;
     align-items: center;
     text-align: center;
+    width: 100%;
   }
-  .section p {
+  #block_content p {
+    font-size: 1.15rem;
+  }
+
+}
+
+#page-top{
+  flex-direction: row;
+  background-color: #345A61;
+  width: 100%;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+}
+
+@media (max-width: 600px) {
+  #page-top {
+    display: flex;
+    flex-direction: column;
+    padding-bottom: 10px;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    width: 100%;
+    height: auto;
+  }
+  #page-top p {
+    font-size: 1.15rem;
+  }
+
+}
+
+#foodsaveform{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  width: 100%;
+}
+
+#img_foodsave{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  margin: 10px;
+}
+
+#box_foodsave{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+}
+
+#portofolio{
+  background-color: #345A61;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  flex-direction: row;
+  height: auto;
+}
+
+@media (max-width: 600px) {
+  #portofolio {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    text-align: center;
+    width: 100%;
+  }
+  #portofolio p {
     font-size: 1.15rem;
   }
 
 }
 
 @media (min-width: 992px) {
-  .section {
-    /*height: 50%;*/
-    /*min-height: 25%;*/
-    /*padding-top: 80px;
-    padding-bottom: 10px;*/
+  #portofolio {
+    height: 100%;
+    min-height: 80%;
+    padding-top: 80px;
+    padding-bottom: 10px;
     justify-content: space-evenly;
     align-items: center;
     text-align: center;
   }
-  .section p {
+  #portofolio p {
     font-size: 1.15rem;
   }
-  .section h1 {
+  #portofolio h1 {
     font-size: 3rem;
   }
 }
 
 @media (min-width: 1200px) {
-  .section h1 {
+  #portofolio h1 {
     font-size: 3.5rem;
   }
+}
+
+#block_content #portofolio .container-fluid {
+  max-width: 1920px;
+}
+
+#block_content #portofolio .container-fluid .portfolio-box {
+  position: relative;
+  display: block;
+  margin:20px;
+}
+
+#block_content #portofolio .container-fluid .portfolio-box .portfolio-box-caption {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  bottom: 0;
+  text-align: center;
+  opacity: 0;
+  color: #fff;
+  background: rgba(244, 98, 58, 0.9);
+  transition: opacity 0.25s ease;
+  text-align: center;
+}
+
+#block_content #portofolio .container-fluid .portfolio-box .portfolio-box-caption .project-category {
+  font-family: "Merriweather Sans", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
+  font-size: 0.85rem;
+  font-weight: 600;
+  text-transform: uppercase;
+}
+
+#block_content #portofolio .container-fluid .portfolio-box .portfolio-box-caption .project-name {
+  font-size: 1.2rem;
+}
+
+#block_content #portofolio .container-fluid .portfolio-box:hover .portfolio-box-caption {
+  opacity: 1;
 }

@@ -5,7 +5,6 @@
     <title></title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
     {% load static %}
-    <!--<link rel="stylesheet" type="text/css" href="{% static 'aliments/css/bootstrap.min.css' %}" />-->
     <link rel="stylesheet" type="text/css" href="{% static 'Aliments/css/creative.min.css' %}" />
 
     <!-- Font Awesome Icons -->
@@ -42,11 +41,7 @@
                 {% csrf_token %}
                 <div class="input-group input-group-sm mb-3">
                   <input type="text" name="query_nav" form="searchform" class="form-control" placeholder="Search" aria-label="Search" aria-describedby="basic-addon2">
-                  
-                    <!--<div class="input-group-append">
-                       class="btn btn-outline-secondary" type="button"><i  class="fas fa-search"></i></button>
-                    </div>-->
-                  </div>
+                </div>
               </form>
             </li>
             {% if user.is_authenticated %}  
@@ -68,9 +63,10 @@
         </div>
       </div>
     </nav>
+    <div id="block_content">
     {% block content %}
     {% endblock %}
-  
+    </div>
     <!-- Footer -->
     <footer class="fixed-bottom py-3 mentions">
       <div class="container">
@@ -81,9 +77,6 @@
                 <a class="nav-link col-lg-6" href="{% url 'contact' %} #contact">Contact</a>
               </nav>
           </div>
-          <!--<div class="col-lg-4 mr-auto text-center"></div>
-            <p>Copyright &copy; 2019</p>
-          </div>-->
         </div>
       </div>
     </footer>
