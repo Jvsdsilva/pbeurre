@@ -5,7 +5,7 @@ input[type=text] {
     border-radius: 4px;
     font-size: 16px;
     background-color: white;
-    background-image: url('searchicon.png');
+    /*background-image: url('searchicon.png');*/
     background-position: 10px 10px; 
     background-repeat: no-repeat;
     padding: 12px 20px 12px 40px;
@@ -239,6 +239,7 @@ input[type=text] {
         align-items: center;
         text-align: center;
         width: 100%;
+        position: inherit;
       }
       .mentions p {
         font-size: 1.15rem;
@@ -309,6 +310,20 @@ input[type=text] {
   font-size: 2.25rem;
 }
 
+#results_container{
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    width: 100%;
+}
+
+#gutters{
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  margin-top: 10px;
+}
+
 /* text other pages */
 .headtext{
   justify-content: center;
@@ -331,6 +346,7 @@ input[type=text] {
   justify-content: center;
   align-items: center;
   align-content: space-between;
+  height: -webkit-fill-available;
 }
 .prefix{
   margin-right: 10px;
@@ -399,7 +415,7 @@ input[type=text] {
   justify-content: center;
   align-items: center;
   text-align: center;
-
+  height: inherit;
 }
 #block_content .headother{
   background-color: #345A61;
@@ -443,6 +459,7 @@ input[type=text] {
   justify-content: center;
   align-items: center;
   text-align: center;
+  height: auto;
 }
 
 @media (max-width: 600px) {
@@ -517,7 +534,7 @@ input[type=text] {
     min-height: 80%;
     padding-top: 80px;
     padding-bottom: 10px;
-    justify-content: space-evenly;
+    justify-content: center;
     align-items: center;
     text-align: center;
   }
@@ -532,6 +549,9 @@ input[type=text] {
 @media (min-width: 1200px) {
   #portofolio h1 {
     font-size: 3.5rem;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
   }
 }
 

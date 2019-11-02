@@ -3,6 +3,7 @@ from django.contrib.auth.models import User
 
 
 # Create your models here.
+# Create tables database
 class Category(models.Model):
     idCategory = models.CharField(max_length=200)
     nameCategory = models.CharField(max_length=200)

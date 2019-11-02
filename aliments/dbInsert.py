@@ -3,9 +3,9 @@ from aliments.models import Category
 from aliments.models import Store
 from aliments.models import Products
 from aliments.models import Foodsave
-# from aliments.models import User
 
 
+# insert list category into database
 def insertCategory():
     category_list = {}
     cat_list = []
@@ -24,6 +24,7 @@ def insertCategory():
     Category.objects.bulk_create(cat_list)
 
 
+# insert list store into database
 def insertStore():
     store_list = {}
     sto_list = []
@@ -43,6 +44,7 @@ def insertStore():
     Store.objects.bulk_create(sto_list)
 
 
+# Insert list of products into database
 def insertProducts():
     list_prod_obj = []
 
@@ -75,6 +77,7 @@ def insertProducts():
     Products.objects.bulk_create(list_prod_obj)
 
 
+# get primary key for category
 def getidCategory(category):
     ob_Category = Category.objects.filter(nameCategory=category)
     if ob_Category.first():
@@ -87,6 +90,7 @@ def getidCategory(category):
     return(obj_cat)
 
 
+# get primary key for store
 def getidStore(store):
     ob_Store = Store.objects.filter(nameStore=store)
     if ob_Store.first():
@@ -99,6 +103,7 @@ def getidStore(store):
     return(obj_store)
 
 
+# insert save product into database
 def insertFoodsave(idAlim, idUser):
     list_food = []
 
@@ -112,6 +117,7 @@ def insertFoodsave(idAlim, idUser):
     return(list_food)
 
 
+# get products from table products
 def get_Results(product):
     ob_Product = Products.objects.filter(nameAlim=product)
 
@@ -121,6 +127,7 @@ def get_Results(product):
         return(obj_prods_by_cat)
 
 
+# get products from the same category
 def get_products_by_cat(category):
     ob_cat_prod = Products.objects.filter(idCategory=category)[:6]
     json_res = []
@@ -140,6 +147,7 @@ def get_products_by_cat(category):
     return(json_res)
 
 
+# get saved products
 def get_saved_products(idUser):
     result_res = []
     aliment_save = Foodsave.objects.filter(idUser=idUser)

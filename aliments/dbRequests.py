@@ -3,15 +3,13 @@ import json
 import re
 
 
+# class to treate data from API openfoodfacts
 class DbRequests():
 
     def __init__(self):
         # Call the parent class constructor
         super().__init__()
 
-    # -------------------------------- #
-    #             REQUESTS             #
-    # -------------------------------- #
     # --Request api openfoodfacts categories
     def Request_categories(self):
         url_category = 'https://world.openfoodfacts.org/categories.json'
@@ -64,7 +62,8 @@ class DbRequests():
             i += 1
             url_ingredients = ("https://world.openfoodfacts.org/cgi/search." +
                                "pl?search_terms=products&search_simple=1&" +
-                               "action=process&page_size=1000&page={}&json=1".format(i))
+                               "action=process&page_size=1000" +
+                               "&page={}&json=1".format(i))
 
             json_data = requests.get(url_ingredients).json()
 
@@ -72,6 +71,7 @@ class DbRequests():
 
             return(list_products)
 
+    # teatement of strings
     def data_treatement(self, data):
         ingredients = []
         for each in data['products']:
@@ -122,6 +122,7 @@ class DbRequests():
 
         return(ingredients)
 
+    # check if data is present
     def check_presence(self, each):
         presence = False
 
@@ -136,6 +137,7 @@ class DbRequests():
 
         return(presence)
 
+    # check if variables not void
     def check_void(self, each):
         full = False
 

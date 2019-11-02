@@ -13,29 +13,34 @@ from aliments import dbRequests
 from django.contrib.auth.models import User
 
 
+# go to home
 def index(request):
-    #dbInsert.insertCategory()
-    #dbInsert.insertStore()
-    #dbInsert.insertProducts()
+    # dbInsert.insertCategory()
+    # dbInsert.insertStore()
+    # dbInsert.insertProducts()
     template = loader.get_template('Aliments/index.html')
     return HttpResponse(template.render(request=request))
 
 
+# loged in
 def login(request):
     template = loader.get_template('Aliments/user.html')
     return HttpResponse(template.render(request=request))
 
 
+# redirect to user connected page
 def connected(request):
     template = loader.get_template('Aliments/aliments.html')
     return HttpResponse(template.render(request=request))
 
 
+# logout user
 def logout(request):
     template = loader.get_template('Aliments/index.html')
     return HttpResponse(template.render(request=request))
 
 
+# Create new user
 def signup(request):
     if request.method == "POST":
         form = RegistrationForm(request.POST)
@@ -43,13 +48,14 @@ def signup(request):
         if form.is_valid():
             form.save()
 
-            return redirect('Aliments/index.html')
+            return redirect('login')
     else:
         form = RegistrationForm()
 
-    return render(request, 'Aliments/signup.html', {'form': form})
+        return render(request, 'Aliments/signup.html', {'form': form})
 
 
+# request results
 def results(request):
     result_res = []
     search = request.POST.get('searchbtn', None)
@@ -86,6 +92,7 @@ def results(request):
                       {'results': result_res})
 
 
+# redirect to page details for a specific product
 def results_details(request, pk):
     obj_aliment = Products.objects.get(pk=pk)
 
@@ -100,6 +107,7 @@ def results_details(request, pk):
     return render(request, 'Aliments/results_details.html', context)
 
 
+# page os products
 def aliment(request):
 
     foodsave = request.POST.get('foodsavebtn', None)
@@ -125,11 +133,13 @@ def aliment(request):
         return render(request, 'Aliments/aliments.html', args)
 
 
+# page os condictions
 def mentions(request):
     template = loader.get_template('Aliments/mentions.html')
     return HttpResponse(template.render(request=request))
 
 
+# page contact
 def contact(request):
     template = loader.get_template('Aliments/based.html')
     return HttpResponse(template.render(request=request))
