@@ -18,25 +18,25 @@ def index(request):
     # dbInsert.insertCategory()
     # dbInsert.insertStore()
     # dbInsert.insertProducts()
-    template = loader.get_template('Aliments/index.html')
+    template = loader.get_template('aliments/index.html')
     return HttpResponse(template.render(request=request))
 
 
 # loged in
 def login(request):
-    template = loader.get_template('Aliments/user.html')
+    template = loader.get_template('aliments/user.html')
     return HttpResponse(template.render(request=request))
 
 
 # redirect to user connected page
 def connected(request):
-    template = loader.get_template('Aliments/aliments.html')
+    template = loader.get_template('aliments/aliments.html')
     return HttpResponse(template.render(request=request))
 
 
 # logout user
 def logout(request):
-    template = loader.get_template('Aliments/index.html')
+    template = loader.get_template('aliments/index.html')
     return HttpResponse(template.render(request=request))
 
 
@@ -52,7 +52,7 @@ def signup(request):
     else:
         form = RegistrationForm()
 
-        return render(request, 'Aliments/signup.html', {'form': form})
+        return render(request, 'aliments/signup.html', {'form': form})
 
 
 # request results
@@ -73,11 +73,11 @@ def results(request):
             results = dbInsert.get_Results(query)
         else:
             text = "Veiullez saisir un produit"
-            return render(request, 'Aliments/index.html', {'text': text})
+            return render(request, 'aliments/index.html', {'text': text})
 
     if len(results) == 0:
         text = "Nous n'avons pas ce produit, veiullez reessayer!"
-        return render(request, 'Aliments/results.html', {'text': text})
+        return render(request, 'aliments/results.html', {'text': text})
     else:
         for result in results:
             contexts = {}
@@ -88,7 +88,7 @@ def results(request):
 
             result_res.append(contexts)
         # print(result_res)
-        return render(request, 'Aliments/results.html',
+        return render(request, 'aliments/results.html',
                       {'results': result_res})
 
 
@@ -104,7 +104,7 @@ def results_details(request, pk):
         "nutritionGrade": obj_aliment.nutritionGrade
     }
 
-    return render(request, 'Aliments/results_details.html', context)
+    return render(request, 'aliments/results_details.html', context)
 
 
 # page os products
@@ -126,20 +126,20 @@ def aliment(request):
 
     if len(saved_products) == 0:
         text = "Vous n'avez pas de produits enregistrées!"
-        return render(request, 'Aliments/aliments.html', {'text': text})
+        return render(request, 'aliments/aliments.html', {'text': text})
     else:
         args = {'foodsave': saved_products}
 
-        return render(request, 'Aliments/aliments.html', args)
+        return render(request, 'aliments/aliments.html', args)
 
 
 # page os condictions
 def mentions(request):
-    template = loader.get_template('Aliments/mentions.html')
+    template = loader.get_template('aliments/mentions.html')
     return HttpResponse(template.render(request=request))
 
 
 # page contact
 def contact(request):
-    template = loader.get_template('Aliments/based.html')
+    template = loader.get_template('aliments/based.html')
     return HttpResponse(template.render(request=request))
