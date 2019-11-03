@@ -138,7 +138,7 @@ STATIC_URL = '/static/'
 CRISPY_TEMPLATE_PACK = "bootstrap4"
 LOGIN_REDIRECT_URL = '../../aliments/aliment'
 LOGOUT_REDIRECT_URL = '/'
-
+STATIC_ROOT = os.path.join(BASE_DIR, 'static')
 if os.environ.get('ENV') == 'PRODUCTION':
 
     # Static files settings
