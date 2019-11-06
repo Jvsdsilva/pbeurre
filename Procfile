@@ -1,1 +1,1 @@
-web: gunicorn pbeurre.wsgi
+web: gunicorn jspurbeurre.wsgi
