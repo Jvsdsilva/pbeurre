@@ -22,16 +22,10 @@ BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 # See https://docs.djangoproject.com/en/2.2/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = os.environ.get('SECRET_KEY', 'h=kv-xw_96)z(t#t++l#y+%am8+&!91=t(lj=*y3ow*f3sosn3')
+SECRET_KEY = os.environ.get('SECRET_KEY')
 
 # SECURITY WARNING: don't run with debug turned on in production!
-if os.environ.get('ENV') == 'PRODUCTION':
-    DEBUG = False
-else:
-    DEBUG = True
-
-ALLOWED_HOSTS = ['jspurbeurre.herokuapp.com']
-
+DEBUG = False
 
 # Application definition
 
@@ -140,6 +134,14 @@ LOGIN_REDIRECT_URL = '../../aliments/aliment'
 LOGOUT_REDIRECT_URL = '/'
 STATIC_ROOT = os.path.join(BASE_DIR, 'static')
 
+TEMPLATE_DEBUG = DEBUG
+
+ALLOWED_HOSTS = [
+    'localhost',
+    '.herokuapp.com'
+]
+
+
 if os.environ.get('ENV') == 'PRODUCTION':
 
     # Static files settings
@@ -155,5 +157,5 @@ if os.environ.get('ENV') == 'PRODUCTION':
     STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
 
     db_from_env = dj_database_url.config(conn_max_age=500)
-    
+
     DATABASES['default'].update(db_from_env)
