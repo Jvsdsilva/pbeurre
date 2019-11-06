@@ -141,8 +141,8 @@ ALLOWED_HOSTS = [
 
 
 if os.environ.get('ENV') == 'PRODUCTION':
-    LOGIN_REDIRECT_URL = os.environ.get('LOGIN_REDIRECT_URL')
-    LOGOUT_REDIRECT_URL = os.environ.get('LOGOUT_REDIRECT_URL')
+    #LOGIN_REDIRECT_URL = os.environ.get('LOGIN_REDIRECT_URL')
+    #LOGOUT_REDIRECT_URL = os.environ.get('LOGOUT_REDIRECT_URL')
     # Static files settings
     PROJECT_ROOT = os.path.dirname(os.path.abspath(__file__))
 
