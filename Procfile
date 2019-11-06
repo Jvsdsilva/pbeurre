@@ -1,1 +1,1 @@
-web: gunicorn --pythonpath pbeurre --log-file -
+web: gunicorn --pythonpath pbeurre.wsgi --log-file -
