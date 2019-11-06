@@ -1,1 +1,1 @@
-web: gunicorn jspurbeurre.wsgi
+web: gunicorn --pythonpath pbeurre pbeurre.deploy --log-file -
