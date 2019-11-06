@@ -130,8 +130,8 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/2.2/howto/static-files/
 STATIC_URL = '/static/'
 CRISPY_TEMPLATE_PACK = "bootstrap4"
-LOGIN_REDIRECT_URL = '../../aliments/aliment'
-LOGOUT_REDIRECT_URL = '/'
+LOGIN_REDIRECT_URL = os.environ.get('LOGIN_REDIRECT_URL')
+LOGOUT_REDIRECT_URL = os.environ.get('LOGOUT_REDIRECT_URL')
 STATIC_ROOT = os.path.join(BASE_DIR, 'static')
 
 TEMPLATE_DEBUG = DEBUG
