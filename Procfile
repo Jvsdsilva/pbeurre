@@ -1,1 +1,1 @@
-web: gunicorn --pythonpath pbeurre pbeurre.deploy --log-file -
+web: gunicorn --pythonpath pbeurre --log-file -
