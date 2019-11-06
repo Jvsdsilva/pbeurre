@@ -137,7 +137,7 @@ STATIC_ROOT = os.path.join(BASE_DIR, 'static')
 TEMPLATE_DEBUG = DEBUG
 
 ALLOWED_HOSTS = [
-    'localhost',
+    'localhost:5000',
     '.herokuapp.com'
 ]
 
