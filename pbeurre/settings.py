@@ -136,7 +136,7 @@ TEMPLATE_DEBUG = DEBUG
 
 ALLOWED_HOSTS = [
     'localhost:5000',
-    'https://jspurbeurre.herokuapp.com'
+    'https://jspurbeurre.herokuapp.com/'
 ]
 
 
