@@ -89,7 +89,9 @@ DATABASES = {
         'PASSWORD': '1234',
         'HOST': '',
         'PORT': '5432',
+    'ATOMIC_REQUESTS': True,
     }
+    
 }
 
 
@@ -137,10 +139,10 @@ TEMPLATE_DEBUG = DEBUG
 ALLOWED_HOSTS = [
     'localhost:5000',
     'https://jspurbeurre.herokuapp.com/'
-]
-
+    ]
 
 if os.environ.get('ENV') == 'PRODUCTION':
+   
     LOGIN_REDIRECT_URL = os.environ.get('LOGIN_REDIRECT_URL')
     LOGOUT_REDIRECT_URL = os.environ.get('LOGOUT_REDIRECT_URL')
     # Static files settings

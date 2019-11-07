@@ -11,6 +11,7 @@ from aliments.models import Foodsave
 from aliments import dbInsert
 from aliments import dbRequests
 from django.contrib.auth.models import User
+from django.db import transaction
 
 
 # go to home
