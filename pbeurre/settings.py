@@ -138,7 +138,7 @@ TEMPLATE_DEBUG = DEBUG
 
 ALLOWED_HOSTS = [
     'localhost:5000',
-    'https://jspurbeurre.herokuapp.com/'
+    'jspurbeurre.herokuapp.com'
     ]
 
 if os.environ.get('ENV') == 'PRODUCTION':
