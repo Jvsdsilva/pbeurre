@@ -25,6 +25,7 @@ SECRET_KEY = os.environ.get('SECRET_KEY')
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = False
+
 # Application definition
 
 INSTALLED_APPS = [
@@ -135,7 +136,7 @@ STATIC_ROOT = os.path.join(BASE_DIR, 'static')
 TEMPLATE_DEBUG = DEBUG
 
 ALLOWED_HOSTS = [
-    'localhost',
+    'localhost:5000',
     'jspurbeurre.herokuapp.com'
     ]
 
