@@ -21,10 +21,10 @@ BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 # See https://docs.djangoproject.com/en/2.2/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = os.environ.get('SECRET_KEY')
-
+#SECRET_KEY = os.environ.get('SECRET_KEY')
+SECRET_KEY = 'h=kv-xw_96)z(t#t++l#y+%am8+&!91=t(lj=*y3ow*f3sosn3'
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = False
+DEBUG = True
 # Application definition
 
 INSTALLED_APPS = [
@@ -136,6 +136,7 @@ TEMPLATE_DEBUG = DEBUG
 
 ALLOWED_HOSTS = [
     'localhost:5000',
+    '127.0.0.1',
     'jspurbeurre.herokuapp.com'
     ]
 
@@ -159,3 +160,6 @@ if os.environ.get('ENV') == 'PRODUCTION':
     db_from_env = dj_database_url.config(conn_max_age=500)
 
     DATABASES['default'].update(db_from_env)
+else:
+    LOGIN_REDIRECT_URL = '../../aliments/aliment'
+    LOGOUT_REDIRECT_URL = '/'
