@@ -24,7 +24,10 @@ BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 SECRET_KEY = os.environ.get('SECRET_KEY')
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = False
+if os.environ.get('ENV') == 'PRODUCTION':
+    DEBUG = False
+else:
+    DEBUG = True
 
 # Application definition
 
@@ -136,7 +139,7 @@ STATIC_ROOT = os.path.join(BASE_DIR, 'static')
 TEMPLATE_DEBUG = DEBUG
 
 ALLOWED_HOSTS = [
-    'localhost:5000',
+    'localhost',
     'jspurbeurre.herokuapp.com'
     ]
 
