@@ -11,6 +11,7 @@ from aliments.models import Foodsave
 from aliments import dbInsert
 from aliments import dbRequests
 from django.contrib.auth.models import User
+from django.db import transaction
 
 
 # go to home
@@ -107,7 +108,7 @@ def results_details(request, pk):
     return render(request, 'aliments/results_details.html', context)
 
 
-# page os products
+# page of products
 def aliment(request):
 
     foodsave = request.POST.get('foodsavebtn', None)
@@ -133,7 +134,7 @@ def aliment(request):
         return render(request, 'aliments/aliments.html', args)
 
 
-# page os condictions
+# page of condictions
 def mentions(request):
     template = loader.get_template('aliments/mentions.html')
     return HttpResponse(template.render(request=request))
