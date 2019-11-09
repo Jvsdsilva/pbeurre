@@ -16,9 +16,9 @@ from django.db import transaction
 
 # go to home
 def index(request):
-    # dbInsert.insertCategory()
-    # dbInsert.insertStore()
-    # dbInsert.insertProducts()
+    dbInsert.insertCategory()
+    dbInsert.insertStore()
+    dbInsert.insertProducts()
     template = loader.get_template('aliments/index.html')
     return HttpResponse(template.render(request=request))
 
