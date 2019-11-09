@@ -58,8 +58,6 @@ def signup(request):
 
 # request results
 def results(request):
-    dbInsert.insertCategory()
-    dbInsert.insertStore()
     result_res = []
     search = request.POST.get('searchbtn', None)
     query_index = request.POST['query_index']
