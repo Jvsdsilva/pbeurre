@@ -58,7 +58,9 @@ def signup(request):
 
 # request results
 def results(request):
-    result_res = []
+    dbInsert.insertCategory()
+    dbInsert.insertStore()
+    """result_res = []
     search = request.POST.get('searchbtn', None)
     query_index = request.POST['query_index']
     query_nav = request.POST['query_nav']
@@ -90,7 +92,7 @@ def results(request):
             result_res.append(contexts)
         # print(result_res)
         return render(request, 'aliments/results.html',
-                      {'results': result_res})
+                      {'results': result_res})"""
 
 
 # redirect to page details for a specific product
