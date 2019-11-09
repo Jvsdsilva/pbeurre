@@ -1,2 +1,2 @@
-web: gunicorn pbeurre.wsgi
-worker: creative.js
+web:gunicorn pbeurre.wsgi
+worker:creative.js
