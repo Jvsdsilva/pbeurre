@@ -24,7 +24,10 @@ BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 SECRET_KEY = os.environ.get('SECRET_KEY')
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = False
+if os.environ.get('ENV') == 'PRODUCTION':
+    DEBUG = False
+else:
+    DEBUG = True
 
 # Application definition
 
@@ -83,7 +86,7 @@ WSGI_APPLICATION = 'pbeurre.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql',  # on utilise l'adaptateur postgresql
-        'NAME': 'postgresql-rectangular-77646',  # le nom de notre base de donnees creee precedemment
+        'NAME': 'pbeurre',  # le nom de notre base de donnees creee precedemment
         'USER': 'postgres',  # attention : remplacez par votre nom d'utilisateur
         'PASSWORD': '1234',
         'HOST': '',
@@ -156,3 +159,6 @@ if os.environ.get('ENV') == 'PRODUCTION':
     db_from_env = dj_database_url.config(conn_max_age=500)
 
     DATABASES['default'].update(db_from_env)
+else:
+    LOGIN_REDIRECT_URL = '../../aliments/aliment'
+    LOGOUT_REDIRECT_URL = '/'
