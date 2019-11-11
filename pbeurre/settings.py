@@ -140,7 +140,7 @@ ALLOWED_HOSTS = [
 
 if os.environ.get('ENV') == 'PRODUCTION':
     LOGIN_REDIRECT_URL = '../../aliments/aliment'
-    LOGOUT_REDIRECT_URL = 'jspurbeurre.herokuapp.com'
+    LOGOUT_REDIRECT_URL = '../../'
     # Static files settings
     PROJECT_ROOT = os.path.dirname(os.path.abspath(__file__))
 
