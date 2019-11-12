@@ -22,10 +22,10 @@ class Store(models.Model):
 
 class Products(models.Model):
     nameAlim = models.CharField(max_length=200)
-    image = models.CharField(max_length=200)
-    url = models.CharField(max_length=500)
-    descriptionAlim = models.CharField(max_length=3000)
-    nutritionGrade = models.CharField(max_length=200)
+    image = models.CharField(max_length=200, blank=True, null=True)
+    url = models.CharField(max_length=500, blank=True, null=True)
+    descriptionAlim = models.CharField(max_length=3000, blank=True, null=True)
+    nutritionGrade = models.CharField(max_length=200, blank=True, null=True)
     idCategory = models.ForeignKey(Category, on_delete=models.CASCADE)
     idStore = models.ForeignKey(Store, on_delete=models.CASCADE)
 
