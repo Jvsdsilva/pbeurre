@@ -26,8 +26,8 @@ class Products(models.Model):
     url = models.CharField(max_length=500, blank=True, null=True)
     descriptionAlim = models.CharField(max_length=3000, blank=True, null=True)
     nutritionGrade = models.CharField(max_length=200, blank=True, null=True)
-    idCategory = models.ForeignKey(Category, on_delete=models.CASCADE)
-    idStore = models.ForeignKey(Store, on_delete=models.CASCADE)
+    idCategory = models.ForeignKey(Category, default=None, on_delete=models.CASCADE)
+    idStore = models.ForeignKey(Store, default=None, on_delete=models.CASCADE)
 
     def __str__(self):
         return self.nameAlim
