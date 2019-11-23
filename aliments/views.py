@@ -12,13 +12,28 @@ from aliments import dbInsert
 from aliments import dbRequests
 from django.contrib.auth.models import User
 from django.db import transaction
+from aliments.models import Category
+from aliments.models import Store
+from aliments.models import Products
 
 
 # go to home
 def index(request):
-    # dbInsert.insertCategory()
-    # dbInsert.insertStore()
-    # dbInsert.insertProducts()
+    try:
+        Category[0]
+    except IndexError:
+        # Doesn't exist!
+        dbInsert.insertCategory()
+
+        try:
+            Store[0]
+        except IndexError:
+            # Doesn't exist!
+            dbInsert.insertStore()
+            try:
+                Products[0]
+            except IndexError:
+                dbInsert.insertProducts()
     template = loader.get_template('aliments/index.html')
     return HttpResponse(template.render(request=request))
 
