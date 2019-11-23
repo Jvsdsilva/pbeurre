@@ -19,20 +19,22 @@ from aliments.models import Products
 
 # go to home
 def index(request):
-    try:
-        Category[0]
-    except IndexError:
-        # Doesn't exist!
+
+    cat = Category.objects.all()
+    if cat.exists():
+        print("exist")
+    else:
         dbInsert.insertCategory()
 
-        try:
-            Store[0]
-        except IndexError:
-            # Doesn't exist!
+        store = Store.objects.all()
+        if store.exists():
+            print("exist")
+        else:
             dbInsert.insertStore()
-            try:
-                Products[0]
-            except IndexError:
+            products = Products.objects.all()
+            if products.exists():
+                print("exist")
+            else:
                 dbInsert.insertProducts()
     template = loader.get_template('aliments/index.html')
     return HttpResponse(template.render(request=request))
