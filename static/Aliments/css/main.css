@@ -221,6 +221,7 @@ input[type=text] {
   /* footer */
   .mentions{
     background-color: #86EBE6;
+    position: inherit;
   }
 
     .mentions h1 {
@@ -253,6 +254,7 @@ input[type=text] {
       .mentions {
         padding-bottom: 0px;
         text-align: center;
+        position: inherit;
       }
       .mentions p {
         font-size: 1.15rem;
