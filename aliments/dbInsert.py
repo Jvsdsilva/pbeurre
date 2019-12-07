@@ -123,8 +123,10 @@ def get_Results(product):
 
     if ob_Product.first():
         obj_prods_by_cat = get_products_by_cat(ob_Product.first().idCategory)
-
-        return(obj_prods_by_cat)
+    else:
+        obj_prods_by_cat = list()
+    
+    return(obj_prods_by_cat)
 
 
 # get products from the same category

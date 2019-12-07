@@ -93,21 +93,21 @@ def results(request):
             text = "Veiullez saisir un produit"
             return render(request, 'aliments/index.html', {'text': text})
 
-    if len(results) == 0:
-        text = "Nous n'avons pas ce produit, veiullez reessayer!"
-        return render(request, 'aliments/results.html', {'text': text})
-    else:
-        for result in results:
-            contexts = {}
-            contexts['id'] = result.id
-            contexts['nameAlim'] = result.nameAlim
-            contexts['image'] = result.image
-            contexts['nutritionGrade'] = result.nutritionGrade
+        if len(results) == 0:
+            text = "Nous n'avons pas ce produit, veiullez reessayer!"
+            return render(request, 'aliments/results.html', {'text': text})
+        else:
+            for result in results:
+                contexts = {}
+                contexts['id'] = result.id
+                contexts['nameAlim'] = result.nameAlim
+                contexts['image'] = result.image
+                contexts['nutritionGrade'] = result.nutritionGrade
 
-            result_res.append(contexts)
-        # print(result_res)
-        return render(request, 'aliments/results.html',
-                      {'results': result_res})
+                result_res.append(contexts)
+            # print(result_res)
+            return render(request, 'aliments/results.html',
+                        {'results': result_res})
 
 
 # redirect to page details for a specific product
