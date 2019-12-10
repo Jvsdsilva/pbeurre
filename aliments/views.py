@@ -15,6 +15,10 @@ from django.db import transaction
 from aliments.models import Category
 from aliments.models import Store
 from aliments.models import Products
+import logging
+
+# Get an instance of a logger
+logger = logging.getLogger(__name__)
 
 
 # go to home
@@ -22,18 +26,19 @@ def index(request):
 
     cat = Category.objects.all()
     if cat.exists():
-        print("exist")
+        logger.log('Exists!')
+        # print("exist")
     else:
         dbInsert.insertCategory()
 
         store = Store.objects.all()
         if store.exists():
-            print("exist")
+            logger.log('Exists!')
         else:
             dbInsert.insertStore()
             products = Products.objects.all()
             if products.exists():
-                print("exist")
+                logger.log('Exists!')
             else:
                 dbInsert.insertProducts()
     template = loader.get_template('aliments/index.html')
