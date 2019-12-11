@@ -17,13 +17,11 @@ from aliments.models import Store
 from aliments.models import Products
 import logging
 
-# Get an instance of a logger
-logger = logging.getLogger(__name__)
-
-
 # go to home
 def index(request):
-
+    # Get an instance of a logger
+    logger = logging.getLogger(__name__)
+    
     cat = Category.objects.all()
     if cat.exists():
         logger.log('Exists!')
