@@ -15,30 +15,28 @@ from django.db import transaction
 from aliments.models import Category
 from aliments.models import Store
 from aliments.models import Products
-import logging
 
 # go to home
 def index(request):
-    # Get an instance of a logger
-    logger = logging.getLogger(__name__)
-    
+
     cat = Category.objects.all()
     if cat.exists():
-        logger.log('Exists!')
-        # print("exist")
-    else:
+        wcategorie = True
+    
+    if wcategorie == False:
         dbInsert.insertCategory()
 
         store = Store.objects.all()
         if store.exists():
-            logger.log('Exists!')
-        else:
+            wstore = True
+        if wstore == False:
             dbInsert.insertStore()
             products = Products.objects.all()
             if products.exists():
-                logger.log('Exists!')
-            else:
+                wproducts = True
+            if wproducts == False:
                 dbInsert.insertProducts()
+
     template = loader.get_template('aliments/index.html')
     return HttpResponse(template.render(request=request))
 
