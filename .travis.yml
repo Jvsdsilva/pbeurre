@@ -16,4 +16,4 @@ services:
 env: DJANGO_SETTINGS_MODULE=pbeurre.settings.travis
 
 script:
-  - ./manage.py test
+  - python manage.py test
