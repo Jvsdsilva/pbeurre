@@ -15,6 +15,7 @@ from django.db import transaction
 from aliments.models import Category
 from aliments.models import Store
 from aliments.models import Products
+from django.urls import path
 
 # go to home
 def index(request):
