@@ -34,7 +34,7 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'debug_toolbar',
     'aliments.apps.AlimentsConfig',
-    "crispy_forms",
+    'crispy_forms',
 ]
 
 MIDDLEWARE = [
