@@ -90,7 +90,6 @@ ENV/
 env.bak/
 venv.bak/
 .vscode
-settings.py
 # Spyder project settings
 .spyderproject
 .spyproject
