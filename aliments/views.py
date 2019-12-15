@@ -15,29 +15,27 @@ from django.db import transaction
 from aliments.models import Category
 from aliments.models import Store
 from aliments.models import Products
-from django.urls import path
+
 
 # go to home
 def index(request):
 
     cat = Category.objects.all()
     if cat.exists():
-        wcategorie = True
-    
-    if wcategorie == False:
+        print("exist")
+    else:
         dbInsert.insertCategory()
 
         store = Store.objects.all()
         if store.exists():
-            wstore = True
-        if wstore == False:
+            print("exist")
+        else:
             dbInsert.insertStore()
             products = Products.objects.all()
             if products.exists():
-                wproducts = True
-            if wproducts == False:
+                print("exist")
+            else:
                 dbInsert.insertProducts()
-
     template = loader.get_template('aliments/index.html')
     return HttpResponse(template.render(request=request))
 
