@@ -136,8 +136,7 @@ STATIC_ROOT = os.path.join(BASE_DIR, 'static')
 TEMPLATE_DEBUG = DEBUG
 
 ALLOWED_HOSTS = [
-    '127.0.0.1',
-    '.herokuapp.com'
+    'aliments.herokuapp.com'
     ]
 
 if os.environ.get('ENV') == 'PRODUCTION':
