@@ -26,7 +26,7 @@ def index(request):
     else:
         dbInsert.insertCategory()
 
-        store = Store.objects.all()
+        """store = Store.objects.all()
         if store.exists():
             print("exist")
         else:
@@ -35,7 +35,7 @@ def index(request):
             if products.exists():
                 print("exist")
             else:
-                dbInsert.insertProducts()
+                dbInsert.insertProducts()"""
     template = loader.get_template('aliments/index.html')
     return HttpResponse(template.render(request=request))
 
